@@ -1,0 +1,1 @@
+<center><h1>data created</h1>{{$data['nama']}}</center>

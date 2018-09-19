@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+Route::post('/', 'IndexController@store');
+route::get('/profile/{filename}', 'IndexController@show');
