@@ -35,35 +35,35 @@ class IndexController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'nama' => 'required|string',
+            'name' => 'required|string',
             'date' => 'required|date',
             'email' => 'required|email',
-            'alamat' => 'required'
+            'address' => 'required'
         ];
         $request->validate($rules);
         $input = [
-            'nama' => $request->input('nama'), 
+            'name' => $request->input('name'), 
             'date' => $request->input('date'), 
             'email' => $request->input('email'), 
-            'alamat' => $request->input('alamat'),
+            'address' => $request->input('address'),
             ];
 
         $datenow = date("dmYHis");
-        $this->write($input['nama'], $input['date'], $input['email'], $input['alamat'], $datenow);
+        $this->write($input['name'], $input['date'], $input['email'], $input['address'], $datenow);
         return View('saved',[
-            'nama' => $input['nama'],
+            'name' => $input['name'],
             'date' => $input['date'],
             'email' => $input['email'],
-            'alamat' => $input['alamat'],
+            'address' => $input['address'],
             'datenow' => $datenow,
             'data' => $input
         ]);
     }
 
-    private function write($nama, $date, $email, $alamat,$datenow)
+    private function write($name, $date, $email, $address,$datenow)
     {
-        $filename = $nama.'-'.$datenow.'.txt';
-        $isi = $nama.",".$email.",".$date.",".$alamat."\n";
+        $filename = $name.'-'.$datenow.'.txt';
+        $isi = $name.",".$email.",".$date.",".$address."\n";
         file_put_contents("detail/$filename", $isi);
         
     }

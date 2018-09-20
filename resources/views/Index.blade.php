@@ -1,93 +1,155 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE Html>
+<Html lang="en">
+<head>
+    <title>Contact V4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================
+    -->
+    {!! Html::style('images/icons/favicon.ico') !!}
+<!--===============================================================================================
+-->
+    {!! Html::style('/vendor/bootstrap/css/bootstrap.min.css') !!}
+<!--===============================================================================================
+    -->
+    {!! Html::style('/fonts/font-awesome-4.7.0/css/font-awesome.min.css') !!}
+<!--===============================================================================================
+    -->
+    {!! Html::style('/vendor/animate/animate.css') !!}
+<!--===============================================================================================
+    -->
+    {!! Html::style('/vendor/css-hamburgers/hamburgers.min.css') !!}
+<!--===============================================================================================
+    -->
+    {!! Html::style('/vendor/animsition/css/animsition.min.css') !!}
+<!--===============================================================================================
+-->
+    {!! Html::style('vendor/select2/select2.min.css') !!}
+<!--===============================================================================================
+-->
+    {!! Html::style('/vendor/daterangepicker/daterangepicker.css') !!}
+<!--===============================================================================================
 
-        <title>Laravel</title>
+-->
+    {!! Html::style('/css/util.css') !!}
+    {!! Html::style('/css/main.css') !!}
+<!--===============================================================================================-->
+</head>
+<body>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form"  action="/" method="post">
+                  @csrf
+                <span class="contact100-form-title">
+                    Kapanlagi Youniverse
+                </span>
 
-            .full-height {
-                height: 100vh;
-            }
+                <div class="wrap-input100 validate-input" >
+                    <span class="label-input100">Your Name</span>
+                    <input class="input100" type="text" name="name" placeholder="Enter your name">
+                    <span class="focus-input100"></span>
+                </div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                <div class="wrap-input100 validate-input">
+                    <span class="label-input100">Email</span>
+                    <input class="input100" type="text" name="email" placeholder="Enter your email addess">
+                    <span class="focus-input100"></span>
+                </div>
 
-            .position-ref {
-                position: relative;
-            }
+                <div class="wrap-input100 validate-input">
+                    <span class="label-input100">Birth Date</span>
+                    <input class="input100" type="date" name="date" placeholder="">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input">
+                    <span class="label-input100">Address</span>
+                    <textarea class="input100" name="address" placeholder="Your full address here..."></textarea>
+                    <span class="focus-input100"></span>
+                </div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn">
+                            <span>
+                                Submit
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
 
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-       
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-                <form action="/" method="post">
-                    @csrf
-                    <input type="text" name="nama">
-                    <input type="text" name="email">
-                    <input type="date" name="date">
-                    <input type="text" name="alamat">
-                    <button>submit</button>
-                    <button type="reset" name="reset">reset</button>
-                     @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-                </form>
-            <div class="content">
-                
-            </div>
+                    </div>
+                    <br>
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                     @endif
+                    <br>
+                </div>
+                <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn" type="reset">
+                            <span>
+                                Reset
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+            </form>
         </div>
-    </body>
-</html>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+    
+    {!! Html::script('vendor/jquery/jquery-3.2.1.min.js') !!}
+<!--===============================================================================================-->
+    
+    {!! Html::script('vendor/animsition/js/animsition.min.js') !!}
+<!--===============================================================================================-->
+    
+    {!! Html::script('vendor/bootstrap/js/popper.js') !!}
+    
+    {!! Html::script('vendor/bootstrap/js/bootstrap.min.js') !!}
+<!--===============================================================================================-->
+    
+    {!! Html::script('vendor/select2/select2.min.js') !!}
+    <script>
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+<!--===============================================================================================-->
+    
+    {!! Html::script('vendor/daterangepicker/moment.min.js') !!}
+    
+    {!! Html::script('vendor/daterangepicker/daterangepicker.js') !!}
+<!--===============================================================================================-->
+    
+    {!! Html::script('vendor/countdowntime/countdowntime.js') !!}
+<!--===============================================================================================-->
+    
+    {!! Html::script('js/main.js') !!}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</Html>
