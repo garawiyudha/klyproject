@@ -13,4 +13,5 @@
 
 Route::get('/', 'IndexController@index');
 Route::post('/', 'IndexController@store');
+
 route::get('/profile/{filename}', 'IndexController@show');

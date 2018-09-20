@@ -1,1 +1,1 @@
-<center><h1>data created</h1>{{$data['nama']}}</center>
+<center><h1>data created</h1><?php echo "$nama-$datenow"; ?></center>

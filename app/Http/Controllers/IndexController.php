@@ -35,27 +35,27 @@ class IndexController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'nama' => 'required',
+            'nama' => 'required|string',
             'date' => 'required|date',
             'email' => 'required|email',
             'alamat' => 'required'
         ];
         $request->validate($rules);
-
         $input = [
             'nama' => $request->input('nama'), 
             'date' => $request->input('date'), 
             'email' => $request->input('email'), 
-            'alamat' => $request->input('alamat')];
+            'alamat' => $request->input('alamat'),
+            ];
 
         $datenow = date("dmYHis");
         $this->write($input['nama'], $input['date'], $input['email'], $input['alamat'], $datenow);
-
         return View('saved',[
             'nama' => $input['nama'],
             'date' => $input['date'],
             'email' => $input['email'],
             'alamat' => $input['alamat'],
+            'datenow' => $datenow,
             'data' => $input
         ]);
     }
@@ -64,9 +64,9 @@ class IndexController extends Controller
     {
         $filename = $nama.'-'.$datenow.'.txt';
         $isi = $nama.",".$email.",".$date.",".$alamat."\n";
-        file_put_contents($filename, $isi);
+        file_put_contents("detail/$filename", $isi);
+        
     }
-
     /**
      * Display the specified resource.
      *
@@ -75,7 +75,7 @@ class IndexController extends Controller
      */
     public function show($filename)
     {
-        readfile("$filename.txt");
+        readfile("detail/$filename.txt");
 
     }
 
