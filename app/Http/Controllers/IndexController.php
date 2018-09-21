@@ -75,8 +75,18 @@ class IndexController extends Controller
      */
     public function show($filename)
     {
-        readfile("detail/$filename.txt");
-
+        $data = file_get_contents("detail/$filename.txt");
+        $myArray = explode(',', $data);
+        $keys = ['name','email','date','address'];
+        $combine = array_combine($keys, $myArray);
+        
+        return View('detail',[
+            'name' => $combine['name'],
+            'date' => $combine['date'],
+            'email' => $combine['email'],
+            'address' => $combine['address'],
+            'data' => $combine
+        ]);
     }
 
     /**

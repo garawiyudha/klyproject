@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contact V4</title>
+	<title>Kapanlagi Youniverse</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================
@@ -41,8 +41,9 @@
 	<div class="container-contact100">
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form" form action="/" method="post">
+				@csrf
 				<span class="contact100-form-title">
-					data created,<br>
+					Thankyou for your response,<br>
 					to view data please copy link below :<br>
 					/localhost:8000/profile/<?php echo "$name-$datenow";?>
 				</span>
@@ -53,7 +54,7 @@
 						<div class="contact100-form-bgbtn"></div>
 						<button class="contact100-form-btn">
 							<span>
-								Submit
+								Submit Another response
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 							</span>
 						</button>
