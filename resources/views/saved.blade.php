@@ -45,19 +45,19 @@
 				<span class="contact100-form-title">
 					Thankyou for your response,<br>
 					to view data please copy link below :<br>
-					/localhost:8000/profile/<?php echo "$name-$datenow";?>
+					localhost:8000/profile/<?php echo "$name-$datenow";?>
 				</span>
 
 				
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button class="contact100-form-btn">
+						<a class="contact100-form-btn" href="/">
 							<span>
 								Submit Another response
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 							</span>
-						</button>
+						</a>
 					</div>
 					<br>
 				</div>

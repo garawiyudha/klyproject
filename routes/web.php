@@ -13,6 +13,5 @@
 
 Route::get('/', 'IndexController@index');
 Route::post('/', 'IndexController@store');
-Route::get('/', function () {return view('IndexController@index');})->name('back');
-
 route::get('/profile/{filename}', 'IndexController@show');
+

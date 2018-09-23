@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Storage;
 
 class IndexController extends Controller
 {
@@ -41,12 +42,13 @@ class IndexController extends Controller
             'address' => 'required'
         ];
         $request->validate($rules);
+
         $input = [
             'name' => $request->input('name'), 
             'date' => $request->input('date'), 
             'email' => $request->input('email'), 
             'address' => $request->input('address'),
-            ];
+        ];
 
         $datenow = date("dmYHis");
         $this->write($input['name'], $input['date'], $input['email'], $input['address'], $datenow);
@@ -63,9 +65,8 @@ class IndexController extends Controller
     private function write($name, $date, $email, $address,$datenow)
     {
         $filename = $name.'-'.$datenow.'.txt';
-        $isi = $name.",".$email.",".$date.",".$address."\n";
-        file_put_contents("detail/$filename", $isi);
-        
+        $isi = $name.",".$email.",".$date.",".$address;
+        Storage::disk('local')->put($filename, $isi);
     }
     /**
      * Display the specified resource.
@@ -75,7 +76,7 @@ class IndexController extends Controller
      */
     public function show($filename)
     {
-        $data = file_get_contents("detail/$filename.txt");
+        $data = Storage::disk('local')->get("$filename.txt");
         $myArray = explode(',', $data);
         $keys = ['name','email','date','address'];
         $combine = array_combine($keys, $myArray);
