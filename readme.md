@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://image.flaticon.com/icons/svg/93/93618.svgg" alt="dummyLogo" width="160">
+  <img src="https://image.freepik.com/free-icon/internet-world_318-30029.jpg" alt="dummyLogo" width="160">
 </h1>
 <h4 align="center">A v simple CRUD webpage built in PHP</h4>
 
